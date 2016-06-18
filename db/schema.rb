@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20160618001644) do
   create_table "properties", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
+
+  create_table "survey_fields", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "type",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,7 +53,7 @@ ActiveRecord::Schema.define(version: 20160618001644) do
   end
 
   create_table "survey_types", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
