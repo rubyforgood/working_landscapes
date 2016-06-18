@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618001644) do
+ActiveRecord::Schema.define(version: 20160618132522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,34 @@ ActiveRecord::Schema.define(version: 20160618001644) do
   end
 
   add_index "entries", ["sample_id"], name: "index_entries_on_sample_id", using: :btree
+
+  create_table "formbuilder_entry_attachments", force: :cascade do |t|
+    t.string   "upload"
+    t.string   "content_type"
+    t.integer  "file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formbuilder_forms", force: :cascade do |t|
+    t.integer  "formable_id"
+    t.string   "formable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formbuilder_response_fields", force: :cascade do |t|
+    t.integer  "form_id"
+    t.text     "label"
+    t.string   "type"
+    t.text     "field_options"
+    t.integer  "sort_order"
+    t.boolean  "required",      default: false
+    t.boolean  "blind",         default: false
+    t.boolean  "admin_only",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "observations", force: :cascade do |t|
     t.datetime "date"
@@ -58,6 +86,8 @@ ActiveRecord::Schema.define(version: 20160618001644) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "sites", ["property_id"], name: "index_sites_on_property_id", using: :btree
 
   create_table "subsites", force: :cascade do |t|
     t.string   "name",       null: false
