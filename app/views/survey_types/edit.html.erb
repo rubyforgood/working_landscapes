@@ -1,0 +1,15 @@
+<h1><%= @survey_type.title %></h1>
+
+<h3>Survey Fields</h3>
+
+<button>Add new field</button>
+
+<%= form_for(SurveyField.new) do |f|%>
+  <%= f.label :name, 'Field name' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :type, 'Field type' %>
+  <%= f.select :type, SurveyField.types.map{ |name, id| [name.capitalize, id] } %>
+<% end %>
+
+
