@@ -8,7 +8,7 @@
   <%= form.input :taxa,  type: :text %>
 
   <% @protocol.each_field do |field| %>
-    <%#= form.input field.name, label: field.label %>
+    <%= form.input field.name, label: field.label %>
   <% end %>
 
 <% end %>

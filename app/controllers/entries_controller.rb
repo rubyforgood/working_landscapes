@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   def new
     @protocol     = GenerateSurveyProtocolForm.new(fixture)
     @sample       = Sample.new(id: params[:sample_id])
-    @entry        = Entry.new
+    @entry        = @protocol.form_class.new(entry: Entry.new)
   end
 
 
