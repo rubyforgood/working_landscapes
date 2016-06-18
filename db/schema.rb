@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618190136) do
+ActiveRecord::Schema.define(version: 20160618193058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "entries", force: :cascade do |t|
     t.integer  "sample_id",                 null: false
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160618190136) do
     t.hstore   "response_data"
   end
 
+  add_index "entries", ["response_data"], name: "entries_response_data", using: :gin
   add_index "entries", ["sample_id"], name: "index_entries_on_sample_id", using: :btree
 
   create_table "observations", force: :cascade do |t|
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160618190136) do
     t.hstore   "response_data"
   end
 
+  add_index "samples", ["response_data"], name: "samples_response_data", using: :gin
   add_index "samples", ["subsite_id"], name: "index_samples_on_subsite_id", using: :btree
 
   create_table "sites", force: :cascade do |t|
@@ -83,7 +86,7 @@ ActiveRecord::Schema.define(version: 20160618190136) do
   add_index "survey_fields", ["survey_type_id"], name: "index_survey_fields_on_survey_type_id", using: :btree
 
   create_table "survey_protocols", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
