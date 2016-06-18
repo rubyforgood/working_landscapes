@@ -5,8 +5,8 @@ class GenerateSurveyProtocolForm
     @fields = format["fields"]
   end
 
-  def each_field
-    fields.lazy.map{|f| Field.new(f) }
+  def each_field(&block)
+    fields.map{|f| Field.new(f) }.each(&block)
   end
 
   class Field

@@ -3,4 +3,10 @@ Rails.application.routes.draw do
 
   resources :survey_protocols, only: [:new, :edit, :create]
   resources :survey_fields, only: [:create]
+
+  resources :samples do
+    resources :entries
+  end
+
+
 end
