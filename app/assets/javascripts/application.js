@@ -20,6 +20,6 @@
 //= require turbolinks
 //= require backbone-min
 //= require deep-model.min
-//= require rivets.bundled.min
+//= require rivets.min
 //= require formbuilder
 //= require_tree .
