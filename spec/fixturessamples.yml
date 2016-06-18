@@ -1,0 +1,53 @@
+---
+Sample_1:
+  id: 3
+  subsite_id: 1
+  created_at: 2016-06-18 20:49:40.918223000 Z
+  updated_at: 2016-06-18 20:58:40.171047000 Z
+  response_data:
+    Date: 2014/08/28
+    Plot: '1'
+    Heading: '290'
+    Distance: '3'
+    Field Type: CSG
+    Surveyor Names: Bourg, McCoubrey, Phillips
+Sample_2:
+  id: 4
+  subsite_id: 2
+  created_at: 2016-06-18 22:51:21.009799000 Z
+  updated_at: 2016-06-18 22:51:21.009799000 Z
+  response_data:
+    GPS: '38.29564'
+    GROUP: Hymenoptera-Apiformes
+    STUDY: General Pollinator Survey 2015
+    GEO_TOWN: Stanardsville
+    SURVEYOR: L. Sidamon-Eristoff
+    TRANSECT: vane trap blue
+    GEO_STATE: Virginia
+    GEO_COUNTY: Greene
+    IDENTIFIER: S.J. Burrows
+    DATECOLLECT: 7/15/2015
+    GEO_COUNTRY: USA
+    GEO_LOCATION: Rosebrook
+    COLLECTION_ID: '904984'
+    DATEIDENTIFIED: 9/28/2015
+Sample_3:
+  id: 5
+  subsite_id: 2
+  created_at: 2016-06-18 23:10:09.020862000 Z
+  updated_at: 2016-06-18 23:10:09.020862000 Z
+  response_data:
+    GPS: '38.29564'
+    GROUP: Hymenoptera-Apiformes
+    STUDY: General Pollinator Survey 2015
+    GEO_TOWN: Stanardsville
+    SURVEYOR: L. Sidamon-Eristoff
+    TRANSECT: vane trap blue
+    GEO_STATE: Virginia
+    GEO_COUNTY: Greene
+    IDENTIFIER: S.J. Burrows
+    DATECOLLECT: 6/29/2015
+    GEO_COUNTRY: USA
+    GEO_LOCATION: Rosebrook
+    COLLECTION_ID: '904711'
+    DATEIDENTIFIED: 9/28/2015
