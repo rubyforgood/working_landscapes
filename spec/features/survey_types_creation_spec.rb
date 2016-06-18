@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-RSpec.feature "Survey Type Creation", type: :feature do
+RSpec.feature "Survey Protocol Creation", type: :feature do
   before {
-    visit '/survey_types/new'
+    visit '/survey_protocols/new'
 
-    expect(page).to have_text("Create new survey type")
+    expect(page).to have_text("Create new survey protocol")
 
     fill_in "Title", with: "Sample Survey"
     click_button "Create"
   }
 
-  scenario "User creates new survey type" do
-    expect(current_path).to eq(edit_survey_type_path(SurveyType.last))
+  scenario "User creates new survey protocol" do
+    expect(current_path).to eq(edit_survey_protocol_path(SurveyProtocol.last))
     expect(page).to have_text("Sample Survey")
   end
 
