@@ -11,20 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618202517) do
+ActiveRecord::Schema.define(version: 20160618203509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
   create_table "entries", force: :cascade do |t|
-    t.integer  "sample_id",                 null: false
-    t.integer  "taxa_id",                   null: false
-    t.integer  "count",         default: 1
-    t.string   "name",                      null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.hstore   "response_data"
+    t.integer  "sample_id",              null: false
+    t.integer  "taxa_id",                null: false
+    t.integer  "count",      default: 1
+    t.string   "name",                   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "entries", ["response_data"], name: "entries_response_data", using: :gin
@@ -47,11 +46,10 @@ ActiveRecord::Schema.define(version: 20160618202517) do
   end
 
   create_table "samples", force: :cascade do |t|
-    t.integer  "subsite_id",    null: false
-    t.string   "name",          null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.hstore   "response_data"
+    t.integer  "subsite_id", null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "samples", ["response_data"], name: "samples_response_data", using: :gin
