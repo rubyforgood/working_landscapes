@@ -9,6 +9,11 @@ class GenerateSurveyProtocolForm
     fields.map{|f| Field.new(f) }.each(&block)
   end
 
+  def form_class
+    @form_class ||= Class.new(EntryForm) do
+    end
+  end
+
   class Field
     attr_reader :label, :type, :required, :options, :name
     def initialize(data)

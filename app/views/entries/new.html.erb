@@ -2,7 +2,6 @@
 
 <h3>New Entry:</h3>
 
-
 <%= simple_form_for [@sample, @entry] do |form| %>
 
   <%= form.input :count, type: :integer %>
@@ -11,6 +10,5 @@
   <% @protocol.each_field do |field| %>
     <%#= form.input field.name, label: field.label %>
   <% end %>
-
 
 <% end %>

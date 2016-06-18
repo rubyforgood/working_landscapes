@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe GenerateSurveyProtocolForm do
+  subject(:fields) { described_class.new(input) }
 
   let(:input) {
     { "fields" => [
@@ -16,11 +17,32 @@ describe GenerateSurveyProtocolForm do
   }
 
   describe "field iteration" do
-
     it "provides an enumerator over provided fields" do
-      fields = described_class.new(input)
-
       expect(fields.each_field.map{|f| f.label }.to_a[3]).to eq "Medical history"
+    end
+
+  end
+
+  describe "form_class" do
+    it "returns a subclass of EntryForm class" do
+      expect(fields.form_class.ancestors).to include EntryForm
+      expect(fields.form_class).not_to be EntryForm
+    end
+
+    it "accesses a parent Entry" do
+      entry = Entry.new id: 33, count: 2, taxa: Taxon.new(id: 100)
+      form = fields.form_class.new(entry: entry)
+
+      expect(form.count).to eq 2
+      expect(form.taxa).to eq Taxon.new(id: 100)
+    end
+
+    it "adds the dynamic input fields" do
+      entry = Entry.new id: 23
+      form = fields.form_class.new(entry: entry)
+
+      expect(form).to respond_to(:c6).and respond_to(:c29)
+
     end
 
   end
