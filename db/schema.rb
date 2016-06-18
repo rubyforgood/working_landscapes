@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617235044) do
+ActiveRecord::Schema.define(version: 20160618000137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "observations", force: :cascade do |t|
+    t.datetime "date"
+    t.integer  "protocol_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "observations", ["protocol_id"], name: "index_observations_on_protocol_id", using: :btree
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
