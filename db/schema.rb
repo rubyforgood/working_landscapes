@@ -71,14 +71,17 @@ ActiveRecord::Schema.define(version: 20160618153536) do
   add_index "subsites", ["site_id"], name: "index_subsites_on_site_id", using: :btree
 
   create_table "survey_fields", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "type",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",           null: false
+    t.integer  "type",           null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "survey_type_id", null: false
   end
 
+  add_index "survey_fields", ["survey_type_id"], name: "index_survey_fields_on_survey_type_id", using: :btree
+
   create_table "survey_protocols", force: :cascade do |t|
-    t.string   "title",      null: false
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,4 +96,5 @@ ActiveRecord::Schema.define(version: 20160618153536) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "survey_fields", "survey_protocols", column: "survey_type_id"
 end
