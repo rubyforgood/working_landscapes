@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618001644) do
+ActiveRecord::Schema.define(version: 20160618135957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160618001644) do
   create_table "entries", force: :cascade do |t|
     t.integer  "sample_id",              null: false
     t.integer  "taxa_id",                null: false
-    t.integer  "count",      default: 0
+    t.integer  "count",      default: 1
     t.string   "name",                   null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20160618001644) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "sites", ["property_id"], name: "index_sites_on_property_id", using: :btree
 
   create_table "subsites", force: :cascade do |t|
     t.string   "name",       null: false
