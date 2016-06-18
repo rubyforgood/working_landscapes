@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.1'
 gem 'rails', '4.2.6'
 
 gem 'pg', '~> 0.15'
@@ -22,4 +22,10 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor', '~> 0.0.3'
+  gem 'puma', '~> 3.4'
+  gem 'bundler', '~> 1.12.5'
 end
