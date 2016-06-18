@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618000745) do
+ActiveRecord::Schema.define(version: 20160618001644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,5 +67,15 @@ ActiveRecord::Schema.define(version: 20160618000745) do
   end
 
   add_index "subsites", ["site_id"], name: "index_subsites_on_site_id", using: :btree
+
+  create_table "taxa", force: :cascade do |t|
+    t.string   "family",      null: false
+    t.string   "genus"
+    t.string   "species"
+    t.string   "common_name"
+    t.string   "code"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
