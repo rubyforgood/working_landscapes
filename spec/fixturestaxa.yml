@@ -1,0 +1,26 @@
+---
+Taxon_1:
+  id: 1
+  family: 'null'
+  genus: Andropogon
+  species: virginicus
+  common_name: Broomsedge
+  code: ANVI
+  created_at: 2016-06-18 21:02:21.742938000 Z
+  updated_at: 2016-06-18 21:29:30.941157000 Z
+Taxon_2:
+  id: 2
+  family: Apidae
+  genus: Melissodes
+  species: bimaculata
+  common_name: Long-horned Bee
+  created_at: 2016-06-18 22:33:14.921929000 Z
+  updated_at: 2016-06-18 22:33:14.921929000 Z
+Taxon_3:
+  id: 3
+  family: Andrenidae
+  genus: Andrena
+  species: perplexa
+  common_name: Mining Bee
+  created_at: 2016-06-18 23:02:51.701908000 Z
+  updated_at: 2016-06-18 23:02:51.701908000 Z
