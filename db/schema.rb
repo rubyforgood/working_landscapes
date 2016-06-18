@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618153536) do
+ActiveRecord::Schema.define(version: 20160618190136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "entries", force: :cascade do |t|
-    t.integer  "sample_id",              null: false
-    t.integer  "taxa_id",                null: false
-    t.integer  "count",      default: 0
-    t.string   "name",                   null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "sample_id",                 null: false
+    t.integer  "taxa_id",                   null: false
+    t.integer  "count",         default: 1
+    t.string   "name",                      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.hstore   "response_data"
   end
 
   add_index "entries", ["sample_id"], name: "index_entries_on_sample_id", using: :btree
@@ -44,10 +45,11 @@ ActiveRecord::Schema.define(version: 20160618153536) do
   end
 
   create_table "samples", force: :cascade do |t|
-    t.integer  "subsite_id", null: false
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "subsite_id",    null: false
+    t.string   "name",          null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.hstore   "response_data"
   end
 
   add_index "samples", ["subsite_id"], name: "index_samples_on_subsite_id", using: :btree
