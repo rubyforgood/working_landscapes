@@ -14,6 +14,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'activeadmin', '~> 1.0.0.pre2'
+# ActiveAdmin nicities
+gem 'activeadmin_addons', '~> 0.9.2' # 
+# ActiveAdmin ReForm support
+gem 'activeadmin-reform', '~> 0.1.4' # https://github.com/bolshakov/activeadmin-reform
+#gem "activeadmin_sortable_table" # https://github.com/bolshakov/activeadmin_sortable_table
 gem 'devise', '~> 3.2' # for activeadmin
 
 group :development, :test do
