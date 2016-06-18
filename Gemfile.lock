@@ -193,6 +193,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
+  bundler (~> 1.12.5)
   byebug
   capybara
   coffee-rails (~> 4.1.0)
