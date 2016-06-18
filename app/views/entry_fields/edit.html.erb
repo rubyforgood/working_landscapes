@@ -1,0 +1,13 @@
+<h1><%= @survey_protocol.title %></h1>
+
+<h3>Entry Configurations</h3>
+
+<%= link_to "<< Back to survey protocol configuration", edit_survey_protocol_path(@survey_protocol) %>
+
+<div id='formbuilder'></div>
+
+<script>
+Formbuilder.options.HTTP_ENDPOINT = "<%= survey_protocol_entry_fields_path(@survey_protocol) %>";
+Formbuilder.options.HTTP_METHOD = "PUT";
+new Formbuilder({ selector: '#formbuilder' });
+</script>

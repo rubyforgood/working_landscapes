@@ -1,4 +1,5 @@
 class SurveyProtocolsController < ApplicationController
+  before_action :find_survey_protocol, only: [:edit, :update]
 
   def new
     @survey_protocol = SurveyProtocol.new
@@ -14,12 +15,7 @@ class SurveyProtocolsController < ApplicationController
     end
   end
 
-  def edit
-    @survey_protocol = SurveyProtocol.find(params[:id])
-  end
-
   def update
-    @survey_protocol = SurveyProtocol.find(params[:id])
     @survey_protocol.update!(sample_fields: params[:fields])
     head :ok
   end
@@ -28,5 +24,9 @@ class SurveyProtocolsController < ApplicationController
 
   def strong_params
     params.require(:survey_protocol).permit(:title)
+  end
+
+  def find_survey_protocol
+    @survey_protocol = SurveyProtocol.find(params[:id])
   end
 end
