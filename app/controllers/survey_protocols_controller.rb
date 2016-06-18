@@ -1,4 +1,5 @@
 class SurveyProtocolsController < ApplicationController
+
   def new
     @survey_protocol = SurveyProtocol.new
   end
@@ -15,6 +16,12 @@ class SurveyProtocolsController < ApplicationController
 
   def edit
     @survey_protocol = SurveyProtocol.find(params[:id])
+  end
+
+  def update
+    @survey_protocol = SurveyProtocol.find(params[:id])
+    @survey_protocol.update!(sample_fields: params[:fields])
+    head :ok
   end
 
   private

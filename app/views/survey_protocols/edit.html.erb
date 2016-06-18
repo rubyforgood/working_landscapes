@@ -5,9 +5,7 @@
 <div id='formbuilder'></div>
 
 <script>
-var formbuilder = new Formbuilder({ selector: '#formbuilder' });
-formbuilder.on('save', function(payload) {
-  console.log(payload);
-});
+Formbuilder.options.HTTP_ENDPOINT = "<%= survey_protocol_path(@survey_protocol) %>";
+Formbuilder.options.HTTP_METHOD = "PUT";
+new Formbuilder({ selector: '#formbuilder' });
 </script>
-
