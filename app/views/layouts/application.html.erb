@@ -8,7 +8,13 @@
 </head>
 <body>
 
-<%= yield %>
+  <header>
+    <%= render 'shared/navbar' %>
+  </header>
+
+  <div class='container'>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

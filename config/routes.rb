@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'dashboard#show'
 
-  resources :survey_types, only: [:new, :edit, :create]
-  resources :survey_fields, only: [:create]
+  resources :survey_protocols, only: [:new, :edit, :create, :update]
+
+  resources :samples do
+    resources :entries
+  end
 end
