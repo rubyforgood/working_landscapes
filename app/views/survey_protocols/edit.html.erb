@@ -2,14 +2,12 @@
 
 <h3>Survey Fields</h3>
 
-<button>Add new field</button>
+<div id='formbuilder'></div>
 
-<%= form_for(SurveyField.new) do |f|%>
-  <%= f.label :name, 'Field name' %>
-  <%= f.text_field :name %>
-
-  <%= f.label :type, 'Field type' %>
-  <%= f.select :type, SurveyField.types.map{ |name, id| [name.capitalize, id] } %>
-<% end %>
-
+<script>
+var formbuilder = new Formbuilder({ selector: '#formbuilder' });
+formbuilder.on('save', function(payload) {
+  console.log(payload);
+});
+</script>
 

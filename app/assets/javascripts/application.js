@@ -12,6 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui.min
+//= require jquery.scrollWindowTo
+//= require underscore-min
+//= require underscore.mixin.deepExtend
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require backbone-min
+//= require deep-model.min
+//= require rivets.bundled.min
+//= require formbuilder
 //= require_tree .
