@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "Survey Type Creation", type: :feature do
-
   before {
     visit '/survey_types/new'
 
@@ -17,6 +16,9 @@ RSpec.feature "Survey Type Creation", type: :feature do
   end
 
   scenario "User adds fields to the new survey type" do
-    expect(page).to have_button "New Field"
+    click_button "Add new field"
+
+    fill_in "Field name", with: "Grass height"
+    select  "Dropdown", from: "Field type"
   end
 end
