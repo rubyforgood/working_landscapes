@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20160618001644) do
   create_table "samples", force: :cascade do |t|
     t.integer  "subsite_id", null: false
     t.string   "name",       null: false
+  end
+
+  create_table "survey_types", force: :cascade do |t|
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

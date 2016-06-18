@@ -1,0 +1,7 @@
+<h1>Create new survey type</h1>
+
+<%= form_for(@survey_type) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.submit "Create" %>
+<% end %>
