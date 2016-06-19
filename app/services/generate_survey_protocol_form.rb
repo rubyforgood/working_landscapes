@@ -33,5 +33,18 @@ private
       @options  = data['options']
       @name     = data['cid']
     end
+
+
+    def input_type
+      case @type
+      when /dropdown/i
+        "select"
+      when /text/i
+        "string"
+      else @type
+      end
+    end
+
+
   end
 end
