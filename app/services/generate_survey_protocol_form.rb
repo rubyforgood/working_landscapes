@@ -39,9 +39,7 @@ private
       case @type
       when /dropdown/i
         "select"
-      when /text/i
-        "string"
-      else @type
+      else "string"
       end
     end
 
