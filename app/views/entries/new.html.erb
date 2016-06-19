@@ -5,7 +5,6 @@
 <%= simple_form_for [@sample, @entry] do |form| %>
 
   <%= form.input :count, type: :integer %>
-  <%= form.input :taxa,  type: :text %>
 
   <% @protocol.each_field do |field| %>
     <%= form.input field.name, label: field.label %>

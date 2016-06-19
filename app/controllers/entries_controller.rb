@@ -6,6 +6,24 @@ class EntriesController < ApplicationController
     @entry        = @protocol.form_class.new(entry: Entry.new)
   end
 
+  def create
+    @protocol     = GenerateSurveyProtocolForm.new(fixture)
+    @sample       = Sample.new(id: params[:sample_id])
+    entry         = Entry.new(sample_id: params[:sample_id])
+
+    form = @protocol.form_class.new(entry: Entry.new, data: OpenStruct.new)
+    form.validate(params[:entry])
+
+    form.save do |hash|
+      data = {}
+      @protocol.each_field do |field|
+        data[field.label] = form.send(field.name)
+      end
+
+      Entry.create(hash[:entry].merge(response_data: data, sample_id: params[:sample_id], taxa: nil, taxa_id: 33))
+    end
+
+  end
 
 private
 

@@ -27,5 +27,20 @@ RSpec.describe "submitting an individual entry", type: :feature do
     expect(page).to have_text("Grass/Forb/Wood")
   end
 
+  it "creates a new entry with full data" do
+    visit "/samples/23/entries/new"
+
+    fill_in "Grass/Forb/Wood", with: "Grass"
+    fill_in "Count", with: 1
+
+    expect {
+      click_on "Next Entry"
+    }.to change(Entry, :count).by 1
+
+    entry = Entry.first
+    expect(entry.count).to eq 1
+    expect(entry.response_data["Grass/Forb/Wood"]).to eq "Grass"
+  end
+
 
 end
