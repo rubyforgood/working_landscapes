@@ -11,3 +11,11 @@
 
 ### Data cleanup
 Lat/long fixtures have one value, corresponing protocol is made with 2 to be more sane
+
+### Features
+* no way to edit a SurveyProtocol title
+* publish SurveyProtocol (starts in draft); also delete
+
+### Modeling
+* consider generating EntryForm subclass on publish
+* 
