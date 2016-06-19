@@ -18,7 +18,7 @@ private
   def define_form_class
     Class.new(EntryForm).tap do |klass| 
       each_field.each do |f|
-        klass.send :property, f.name, virtual: true
+        klass.send :property, f.name, virtual: true, on: :data
       end
     end
   end
