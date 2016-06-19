@@ -30,11 +30,11 @@ describe GenerateSurveyProtocolForm do
     end
 
     it "accesses a parent Entry" do
-      entry = Entry.new id: 33, count: 2, taxa: Taxon.new(id: 100)
+      entry = Entry.new id: 33, count: 2, taxon: Taxon.new(id: 100)
       form = fields.form_class.new(entry: entry)
 
       expect(form.count).to eq 2
-      expect(form.taxa).to eq Taxon.new(id: 100)
+      expect(form.taxon).to eq Taxon.new(id: 100)
     end
 
     it "adds the dynamic input fields" do
