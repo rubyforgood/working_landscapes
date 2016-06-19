@@ -42,7 +42,7 @@ private
         data[field.label] = form.send(field.name)
       end
 
-      Entry.create(hash[:entry].merge(response_data: data, sample_id: params[:sample_id], taxa: nil, taxa_id: 33))
+      Entry.create(hash[:entry].merge(response_data: data, sample_id: params[:sample_id], taxon: nil, taxon_id: 33))
     end
   end
 
