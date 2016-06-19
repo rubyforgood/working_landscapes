@@ -44,8 +44,19 @@ private
     end
 
     def options
-      Array(@options["options"]).map{|o| o["label"] }.compact
+      Array(@options["options"]).map{|o| FieldOption.new o }
     end
 
   end
+
+  class FieldOption
+    attr_reader :label, :value, :checked
+    def initialize(definition = {})
+      @label     = definition.fetch("label")
+      @value     = definition.fetch("value", label)
+      @checked   = definition.fetch("checked", false)
+    end
+
+  end
+
 end
