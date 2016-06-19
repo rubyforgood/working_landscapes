@@ -13,7 +13,7 @@ class EntriesController < ApplicationController
 
     form = @protocol.form_class.new(entry: entry, data: OpenStruct.new)
     if form.validate(params[:entry])
-      @entry = save_form(form)
+      save_form(form)
       redirect_to new_sample_entry_path(@sample)
     else
       render :new
