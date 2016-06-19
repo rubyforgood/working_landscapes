@@ -30,8 +30,33 @@ private
       @label    = data['label']
       @type     = data['field_type']
       @required = data['required']
-      @options  = data['options']
+      @options  = data['field_options'] || {}
       @name     = data['cid']
     end
+
+
+    def input_type
+      case @type
+      when /dropdown/i
+        "select"
+      else "string"
+      end
+    end
+
+    def options
+      Array(@options["options"]).map{|o| FieldOption.new o }
+    end
+
   end
+
+  class FieldOption
+    attr_reader :label, :value, :checked
+    def initialize(definition = {})
+      @label     = definition.fetch("label")
+      @value     = definition.fetch("value", label)
+      @checked   = definition.fetch("checked", false)
+    end
+
+  end
+
 end
