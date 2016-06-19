@@ -31,7 +31,7 @@ private
           {"label" => "Forb","checked" => false},
           {"label" => "Wood","checked" => false}
       ],"include_blank_option" => true},"cid" => "c54"},
-      { "label" => "Notes", "field_type" => "text", "required" => true, "field_options" => true, "field_options" => {}, "cid" => "c3" }
+      { "label" => "Notes", "field_type" => "text", "required" => true, "field_options" => {}, "cid" => "c3" }
     ]}
   end
 

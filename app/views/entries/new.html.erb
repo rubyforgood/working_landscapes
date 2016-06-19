@@ -8,7 +8,7 @@
 
   <% @protocol.each_field do |field| %>
     <%= form.input field.name, label: field.label, as: field.input_type,
-      collection: field.options %>
+      required: field.required, collection: field.options %>
   <% end %>
 
   <%= form.button :submit, "Next Entry", class: 'btn-primary' %>
