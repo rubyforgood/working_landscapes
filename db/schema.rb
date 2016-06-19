@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619134622) do
+ActiveRecord::Schema.define(version: 20160619134959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160619134622) do
 
   create_table "entries", force: :cascade do |t|
     t.integer  "sample_id",                 null: false
-    t.integer  "taxa_id",                   null: false
+    t.integer  "taxon_id",                  null: false
     t.integer  "count",         default: 1
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160619134622) do
 
   add_index "entries", ["response_data"], name: "entries_response_data", using: :gin
   add_index "entries", ["sample_id"], name: "index_entries_on_sample_id", using: :btree
+  add_index "entries", ["taxon_id"], name: "index_entries_on_taxon_id", using: :btree
 
   create_table "observations", force: :cascade do |t|
     t.datetime "date"
