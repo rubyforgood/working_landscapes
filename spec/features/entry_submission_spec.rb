@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "submitting an individual entry", type: :feature do
+  let(:sample) { observation.samples.create subsite_id: 33 }
+  let(:observation ) { Observation.create site_id: 2, protocol: protocol }
+
+  let(:protocol )  { SurveyProtocol.create! title: 'test', entry_fields: protocol_definition }
 
   let(:protocol_definition) {
-    { "fields" => [
+    [
       { "label" => "Flowering","field_type" => "dropdown","required" => true,"field_options" => {},"cid" => "c24"},
       { "label" => "Grass/Forb/Wood","field_type" => "dropdown","required" => true,
         "field_options" => {"options" => [
@@ -12,7 +16,7 @@ RSpec.describe "submitting an individual entry", type: :feature do
           {"label" => "Wood","checked" => false},
           {"label" => "","checked" => false}
       ],"include_blank_option" => true},"cid" => "c54"}
-    ]}
+    ]
   }
 
   before do
@@ -21,14 +25,14 @@ RSpec.describe "submitting an individual entry", type: :feature do
   end
 
   it "renders a page successfully" do
-    visit "/samples/23/entries/new"
+    visit "/samples/#{sample.id}/entries/new"
 
     expect(page).to have_text("Flowering")
     expect(page).to have_text("Grass/Forb/Wood")
   end
 
   it "creates a new entry with full data" do
-    visit "/samples/23/entries/new"
+    visit "/samples/#{sample.id}/entries/new"
 
     select "Grass", from:  "Grass/Forb/Wood"
     fill_in "Count", with: 1
