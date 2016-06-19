@@ -7,7 +7,9 @@
   <%= form.input :subsite_id, collection: @observation.site.subsites %>
 
   <% @form_generator.each_field do |field| %>
-    <%= form.input field.name, label: field.label %>
+    <%= form.input field.name, label: field.label, as: field.input_type,
+      required: field.required, collection: field.options, value_method: :value, label_method: :label %>
+  <% end %>
   <% end %>
 
   <%= form.button :submit, "Create entries", class: 'btn-primary' %>
