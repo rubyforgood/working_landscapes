@@ -10,7 +10,8 @@
 * Form confirmation button is gone-zo
 
 ### Data cleanup
-Lat/long fixtures have one value, corresponing protocol is made with 2 to be more sane
+* Lat/long fixtures have one value, corresponing protocol is made with 2 to be more sane
+* Clean up protocol vs survey_protocol inconsistencies
 
 ### Features
 * no way to edit a SurveyProtocol title
@@ -18,4 +19,4 @@ Lat/long fixtures have one value, corresponing protocol is made with 2 to be mor
 
 ### Modeling
 * consider generating EntryForm subclass on publish
-* 
+* rename SampleForm -> AbstractSampleForm, etc

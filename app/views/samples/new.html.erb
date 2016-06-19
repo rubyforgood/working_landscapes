@@ -1,0 +1,16 @@
+<h2><%= @observation.protocol.title %> Observation Input</h2>
+
+<h3>New Sample:</h3>
+
+<%= simple_form_for [@observation, @sample_form] do |form| %>
+
+  <%= form.input :subsite_id, collection: @observation.site.subsites %>
+
+  <% @form_generator.each_field do |field| %>
+    <%= form.input field.name, label: field.label, as: field.input_type,
+      required: field.required, collection: field.options, value_method: :value, label_method: :label %>
+  <% end %>
+
+  <%= form.button :submit, "Create entries", class: 'btn-primary' %>
+
+<% end %>
