@@ -30,7 +30,7 @@ private
       @label    = data['label']
       @type     = data['field_type']
       @required = data['required']
-      @options  = data['options']
+      @options  = data['field_options'] || {}
       @name     = data['cid']
     end
 
@@ -45,6 +45,9 @@ private
       end
     end
 
+    def options
+      Array(@options["options"]).map{|o| o["label"] }.compact
+    end
 
   end
 end

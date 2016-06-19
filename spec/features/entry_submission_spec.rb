@@ -30,7 +30,7 @@ RSpec.describe "submitting an individual entry", type: :feature do
   it "creates a new entry with full data" do
     visit "/samples/23/entries/new"
 
-    fill_in "Grass/Forb/Wood", with: "Grass"
+    select "Grass", from:  "Grass/Forb/Wood"
     fill_in "Count", with: 1
 
     expect {

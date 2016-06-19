@@ -7,7 +7,8 @@
   <%= form.input :count, type: :integer %>
 
   <% @protocol.each_field do |field| %>
-    <%= form.input field.name, label: field.label, as: field.input_type %>
+    <%= form.input field.name, label: field.label, as: field.input_type,
+      collection: field.options %>
   <% end %>
 
   <%= form.button :submit, "Next Entry", class: 'btn-primary' %>
