@@ -1,7 +1,10 @@
 class UjsController < ApplicationController
   # Example in view
   # ```
-  # <%= a.text_field :common_name, :'data-autocomplete' => '/ujs/ac/taxa/common_name' %>
+  #<%= form_tag do %>
+  #  <%= text_field_tag :common_name, nil, :'data-autocomplete' => '/ujs/ac/taxa/common_name' %>
+  #  <%= submit_tag %>
+  #<% end %>
   # ```
   def autocomplete
     render js: <<-JS
@@ -25,7 +28,11 @@ class UjsController < ApplicationController
 
   def get_query
     filtered_resource.
-      where("#{filtered_field.name} ILIKE ?", params["input"]).
+      where(
+        filtered_resource.
+        arel_table[filtered_field.name].
+        matches("%#{params["input"]}%")
+      ).
       uniq.
       limit(8).
       select(filtered_field.name.to_sym).
