@@ -2,7 +2,7 @@ class GenerateSurveyProtocolForm
   attr_reader :fields
 
   def initialize(format)
-    @fields = format['fields']
+    @fields = format
   end
 
   def each_field(&block)

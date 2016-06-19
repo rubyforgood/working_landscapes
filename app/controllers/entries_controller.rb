@@ -1,7 +1,8 @@
 class EntriesController < ApplicationController
 
   def new
-    @protocol     = GenerateSurveyProtocolForm.new(fixture)
+    @observation  = Observation.find(params[:observation_id])
+    @protocol     = GenerateSurveyProtocolForm.new(@observation.protocol.entry_fields)
     @sample       = Sample.new(id: params[:sample_id])
     @entry        = @protocol.form_class.new(entry: Entry.new)
   end
@@ -20,20 +21,8 @@ class EntriesController < ApplicationController
     end
   end
 
-private
 
-  def fixture
-    { "fields" => [
-      { "label" => "Flowering","field_type" => "dropdown","required" => true,"field_options" => {},"cid" => "c24"},
-      { "label" => "Grass/Forb/Wood","field_type" => "dropdown","required" => true,
-        "field_options" => {"options" => [
-          {"label" => "Grass","checked" => true},
-          {"label" => "Forb","checked" => false},
-          {"label" => "Wood","checked" => false}
-      ],"include_blank_option" => true},"cid" => "c54"},
-      { "label" => "Notes", "field_type" => "text", "required" => true, "field_options" => {}, "cid" => "c3" }
-    ]}
-  end
+private
 
   def save_form form
     form.save do |hash|
@@ -45,6 +34,5 @@ private
       Entry.create(hash[:entry].merge(response_data: data, sample_id: params[:sample_id], taxon: nil, taxon_id: 33))
     end
   end
-
 
 end
