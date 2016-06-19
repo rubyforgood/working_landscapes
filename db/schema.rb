@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618203509) do
+ActiveRecord::Schema.define(version: 20160618231635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20160618203509) do
     t.integer  "sample_id",                 null: false
     t.integer  "taxa_id",                   null: false
     t.integer  "count",         default: 1
-    t.string   "name",                      null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.hstore   "response_data"
@@ -48,7 +47,6 @@ ActiveRecord::Schema.define(version: 20160618203509) do
 
   create_table "samples", force: :cascade do |t|
     t.integer  "subsite_id",    null: false
-    t.string   "name",          null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.hstore   "response_data"
@@ -84,7 +82,7 @@ ActiveRecord::Schema.define(version: 20160618203509) do
   end
 
   create_table "taxa", force: :cascade do |t|
-    t.string   "family",      null: false
+    t.string   "family"
     t.string   "genus"
     t.string   "species"
     t.string   "common_name"

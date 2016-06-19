@@ -1,6 +1,9 @@
 <h1><%= @survey_protocol.title %></h1>
 
-<h3>Survey Fields</h3>
+<h3>Sample Configurations</h3>
+
+<p>Use the editor below to configure <b>sample-specific fields.</b></p>
+<p><%= link_to "Click here to configure entry-specific fields.", edit_survey_protocol_entry_fields_path(@survey_protocol) %></p>
 
 <div id='formbuilder'></div>
 
