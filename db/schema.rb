@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619145843) do
+ActiveRecord::Schema.define(version: 20160619163436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 20160619145843) do
     t.integer  "protocol_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "site_id",     null: false
   end
 
   add_index "observations", ["protocol_id"], name: "index_observations_on_protocol_id", using: :btree
+  add_index "observations", ["site_id"], name: "index_observations_on_site_id", using: :btree
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
@@ -47,9 +49,9 @@ ActiveRecord::Schema.define(version: 20160619145843) do
   end
 
   create_table "samples", force: :cascade do |t|
-    t.integer  "subsite_id",    null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "subsite_id",     null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.hstore   "response_data"
     t.integer  "observation_id"
   end
