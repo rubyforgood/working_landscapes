@@ -39,6 +39,12 @@ private
       case @type
       when /dropdown/i
         "select"
+      when /checkboxes/i
+        "check_boxes"
+      when /radio/i
+        "radio_buttons"
+      when /paragraph/i
+        "text"
       else "string"
       end
     end
