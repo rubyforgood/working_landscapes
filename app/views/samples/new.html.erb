@@ -10,7 +10,6 @@
     <%= form.input field.name, label: field.label, as: field.input_type,
       required: field.required, collection: field.options, value_method: :value, label_method: :label %>
   <% end %>
-  <% end %>
 
   <%= form.button :submit, "Create entries", class: 'btn-primary' %>
 
