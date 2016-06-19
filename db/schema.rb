@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 20160619134959) do
 
   add_index "subsites", ["site_id"], name: "index_subsites_on_site_id", using: :btree
 
-
   create_table "survey_protocols", force: :cascade do |t|
     t.string   "title",         null: false
     t.datetime "created_at",    null: false
