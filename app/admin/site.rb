@@ -3,17 +3,17 @@ ActiveAdmin.register Site do
 
   index do
     column :name
-    column :propert_id
+    column :propert
     actions
   end 
 
   filter :name
-  filter :propert_id
+  filter :propert, collection: Property.select(:id, :name).uniq.map {|a| [a.id, b.name]}
 
   form do |f| 
     f.inputs "Site Details" do
       f.input :name
-      f.input :propert_id
+      f.input :property, collection: Property.select(:id, :name).uniq.map {|a| [a.id, b.name]}
     end 
     f.actions
   end 
