@@ -1,0 +1,6 @@
+
+<%= simple_form_for @observation do |f| %>
+<%= f.input :protocol_id, collection: @protocols, selected: @selected_protocol %>
+<%= f.input :site_id, collection: @sites, selected: @selected_site%>
+<%= f.button :submit %>
+<% end %>
