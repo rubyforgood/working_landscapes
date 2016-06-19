@@ -7,7 +7,10 @@
 <div id='formbuilder'></div>
 
 <script>
-Formbuilder.options.HTTP_ENDPOINT = "<%= survey_protocol_entry_fields_path(@survey_protocol) %>";
-Formbuilder.options.HTTP_METHOD = "PUT";
-new Formbuilder({ selector: '#formbuilder' });
+  Formbuilder.options.HTTP_ENDPOINT = "<%= survey_protocol_entry_fields_path(@survey_protocol) %>";
+  Formbuilder.options.HTTP_METHOD = "PUT";
+  new Formbuilder({
+    selector: '#formbuilder',
+    bootstrapData: <%= raw(@survey_protocol.entry_fields.to_json) || [] %>,
+  });
 </script>
