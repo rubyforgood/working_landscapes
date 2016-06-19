@@ -1,6 +1,11 @@
 class SurveyProtocolsController < ApplicationController
   before_action :find_survey_protocol, only: [:edit, :update]
 
+
+  def index
+    @survey_protocols = SurveyProtocol.all
+  end
+
   def new
     @survey_protocol = SurveyProtocol.new
   end
