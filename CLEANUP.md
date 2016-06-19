@@ -8,3 +8,6 @@
 
 ### UI cleanup
 * Form confirmation button is gone-zo
+
+### Data cleanup
+Lat/long fixtures have one value, corresponing protocol is made with 2 to be more sane
