@@ -12,4 +12,7 @@ Rails.application.routes.draw do
       resources :entries, shallow: true
     end
   end
+
+  get "/ujs/ac/:resource/:field" => "ujs#autocomplete", as: 'ujs_autocomplete'
+
 end
