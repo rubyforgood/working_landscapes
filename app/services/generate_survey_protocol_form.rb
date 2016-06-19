@@ -46,6 +46,10 @@ private
         "radio_buttons"
       when /paragraph/i
         "text"
+      when /number/i
+        "numeric"
+      when /date/i
+        "date"
       else "string"
       end
     end
