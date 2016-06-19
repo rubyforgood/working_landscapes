@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619163436) do
+ActiveRecord::Schema.define(version: 20160619134959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,9 +53,10 @@ ActiveRecord::Schema.define(version: 20160619163436) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.hstore   "response_data"
-    t.integer  "observation_id"
+    t.integer  "observation_id", null: false
   end
 
+  add_index "samples", ["observation_id"], name: "index_samples_on_observation_id", using: :btree
   add_index "samples", ["response_data"], name: "samples_response_data", using: :gin
   add_index "samples", ["subsite_id"], name: "index_samples_on_subsite_id", using: :btree
 
@@ -93,4 +94,6 @@ ActiveRecord::Schema.define(version: 20160619163436) do
     t.string   "scientific_name"
   end
 
+  add_foreign_key "observations", "sites"
+  add_foreign_key "samples", "observations"
 end
