@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618231635) do
+ActiveRecord::Schema.define(version: 20160619163436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160618231635) do
 
   create_table "entries", force: :cascade do |t|
     t.integer  "sample_id",                 null: false
-    t.integer  "taxa_id",                   null: false
+    t.integer  "taxon_id",                  null: false
     t.integer  "count",         default: 1
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -28,15 +28,18 @@ ActiveRecord::Schema.define(version: 20160618231635) do
 
   add_index "entries", ["response_data"], name: "entries_response_data", using: :gin
   add_index "entries", ["sample_id"], name: "index_entries_on_sample_id", using: :btree
+  add_index "entries", ["taxon_id"], name: "index_entries_on_taxon_id", using: :btree
 
   create_table "observations", force: :cascade do |t|
     t.datetime "date"
     t.integer  "protocol_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "site_id",     null: false
   end
 
   add_index "observations", ["protocol_id"], name: "index_observations_on_protocol_id", using: :btree
+  add_index "observations", ["site_id"], name: "index_observations_on_site_id", using: :btree
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
@@ -46,10 +49,11 @@ ActiveRecord::Schema.define(version: 20160618231635) do
   end
 
   create_table "samples", force: :cascade do |t|
-    t.integer  "subsite_id",    null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "subsite_id",     null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.hstore   "response_data"
+    t.integer  "observation_id"
   end
 
   add_index "samples", ["response_data"], name: "samples_response_data", using: :gin
@@ -82,13 +86,11 @@ ActiveRecord::Schema.define(version: 20160618231635) do
   end
 
   create_table "taxa", force: :cascade do |t|
-    t.string   "family"
-    t.string   "genus"
-    t.string   "species"
     t.string   "common_name"
     t.string   "code"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "scientific_name"
   end
 
 end

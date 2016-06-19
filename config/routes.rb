@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'dashboard#show'
 
-  resources :survey_protocols, only: [:new, :edit, :create, :update] do
+  resources :survey_protocols, only: [:new, :edit, :create, :update, :index] do
     resource :entry_fields, only: [:edit, :update]
   end
 
-  resources :samples do
-    resources :entries
+  resources :observations do
+    resources :samples, shallow: true do
+      resources :entries, shallow: true
+    end
   end
 end

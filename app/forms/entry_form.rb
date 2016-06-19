@@ -4,6 +4,6 @@ class EntryForm < Reform::Form
   model :entry
 
   property :count, on: :entry
-  property :taxa, on: :entry
+  property :taxon, on: :entry
 
 end

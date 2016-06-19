@@ -1,0 +1,316 @@
+---
+SurveyProtocol_1:
+  id: 2
+  title: General Pollinator Protocol
+  created_at: 2016-06-19 05:20:00.876286000 Z
+  updated_at: 2016-06-19 05:52:02.787380000 Z
+  sample_fields:
+  - label: GROUP
+    field_type: radio
+    required: true
+    field_options:
+      options:
+      - label: Hymenoptera-Apiformes
+        checked: false
+      - label: Hymenoptera-Apoidea
+        checked: false
+      include_other_option: true
+    cid: c8
+  - label: TRANSECT
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: vane trap blue
+        checked: false
+      - label: ''
+        checked: false
+      include_blank_option: false
+    cid: c20
+  - label: SURVEYOR
+    field_type: text
+    required: true
+    field_options:
+      size: medium
+    cid: c26
+  - label: DATECOLLECT
+    field_type: date
+    required: true
+    field_options: {}
+    cid: c32
+  - label: DATEIDENTIFIED
+    field_type: date
+    required: true
+    field_options: {}
+    cid: c38
+  - label: IDENTIFIER
+    field_type: text
+    required: true
+    field_options:
+      size: medium
+    cid: c44
+  - label: STUDY
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: General Pollinator Survey 2015
+        checked: false
+      - label: General Pollinator Survey 2014
+        checked: false
+      - label: General Pollinator Survey 2013
+        checked: false
+      include_blank_option: false
+    cid: c50
+  - label: GEO_COUNTRY
+    field_type: radio
+    required: true
+    field_options:
+      options:
+      - label: USA
+        checked: false
+      - label: Canada
+        checked: false
+      - label: Mexico
+        checked: false
+    cid: c62
+  - label: GEO_STATE
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: Virginia
+        checked: false
+      - label: Maryland
+        checked: false
+      - label: West Virginia
+        checked: false
+      include_blank_option: false
+    cid: c68
+  - label: GEO_COUNTY
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: Greene
+        checked: false
+      - label: 'Rappahannock '
+        checked: false
+      - label: Augusta
+        checked: false
+      - label: Rappahannock
+        checked: false
+      - label: 'Frederick '
+        checked: false
+      - label: Loudoun
+        checked: false
+      include_blank_option: false
+    cid: c74
+  - label: GEO_TOWN
+    field_type: text
+    required: true
+    field_options:
+      size: medium
+    cid: c80
+  - label: GEO_LOCATION
+    field_type: text
+    required: true
+    field_options:
+      size: small
+    cid: c86
+  - label: GPS-Latitude
+    field_type: number
+    required: true
+    field_options:
+      units: degrees
+      min: "-90"
+      max: '90'
+    cid: c92
+  - label: GPS-Longitude
+    field_type: number
+    required: true
+    field_options:
+      min: "-180"
+      max: '180'
+      units: degrees
+    cid: c98
+  entry_fields:
+  - label: SEX CASTE
+    field_type: radio
+    required: true
+    field_options:
+      options:
+      - label: Male
+        checked: false
+      - label: Female
+        checked: false
+      - label: Queen
+        checked: false
+      - label: Worker
+        checked: false
+    cid: c105
+  - label: STATUS
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: Common
+        checked: false
+      - label: Infrequently Collected
+        checked: false
+      include_blank_option: false
+    cid: c111
+SurveyProtocol_2:
+  id: 3
+  title: Plants Protocol (construction)
+  created_at: 2016-06-19 05:56:58.079915000 Z
+  updated_at: 2016-06-19 06:07:43.915508000 Z
+  sample_fields:
+  - label: Surveyor names
+    field_type: text
+    required: true
+    field_options:
+      size: medium
+    cid: c2
+  - label: Date
+    field_type: date
+    required: true
+    field_options: {}
+    cid: c8
+  - label: Field Type
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: CSG
+        checked: false
+      - label: Mixed
+        checked: false
+      - label: WSG
+        checked: false
+      include_blank_option: false
+    cid: c14
+  - label: Transect
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: A
+        checked: false
+      - label: B
+        checked: false
+      - label: C
+        checked: false
+      include_blank_option: false
+    cid: c20
+  - label: Plot
+    field_type: number
+    required: true
+    field_options:
+      integer_only: true
+      min: '1'
+      max: '10'
+    cid: c26
+  - label: Heading
+    field_type: number
+    required: true
+    field_options:
+      units: degrees
+      min: '0'
+      max: '360'
+    cid: c32
+  - label: Distance
+    field_type: number
+    required: true
+    field_options: {}
+    cid: c38
+  entry_fields:
+  - label: "% Cover"
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: P
+        checked: false
+      - label: '10'
+        checked: false
+      - label: '20'
+        checked: false
+      - label: '30'
+        checked: false
+      - label: '40'
+        checked: false
+      - label: '50'
+        checked: false
+      - label: '60'
+        checked: false
+      - label: '70'
+        checked: false
+      - label: '80'
+        checked: false
+      - label: '90'
+        checked: false
+      include_blank_option: false
+    cid: c45
+  - label: Flower/Fruit
+    field_type: radio
+    required: true
+    field_options:
+      options:
+      - label: N/A
+        checked: false
+      - label: FR
+        checked: false
+      - label: FL
+        checked: false
+      - label: FL/FR
+        checked: false
+      include_other_option: false
+    cid: c51
+  - label: Duff %
+    field_type: number
+    required: true
+    field_options: {}
+    cid: c57
+  - label: Soil %
+    field_type: number
+    required: true
+    field_options: {}
+    cid: c63
+  - label: Rock %
+    field_type: number
+    required: true
+    field_options: {}
+    cid: c69
+  - label: Other %
+    field_type: number
+    required: true
+    field_options: {}
+    cid: c75
+  - label: N/I (Native/Introduced)
+    field_type: dropdown
+    required: true
+    field_options:
+      options:
+      - label: N
+        checked: false
+      - label: NA
+        checked: false
+      - label: I
+        checked: false
+      - label: I*
+        checked: false
+      include_blank_option: false
+    cid: c81
+  - label: Major Flowering Spp.
+    field_type: text
+    required: true
+    field_options:
+      size: small
+    cid: c87
+  - label: Notes
+    field_type: text
+    required: true
+    field_options:
+      size: large
+    cid: c93

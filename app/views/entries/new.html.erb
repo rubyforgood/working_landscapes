@@ -5,10 +5,10 @@
 <%= simple_form_for [@sample, @entry] do |form| %>
 
   <%= form.input :count, type: :integer %>
-  <%= form.input :taxa,  type: :text %>
 
   <% @protocol.each_field do |field| %>
-    <%= form.input field.name, label: field.label %>
+    <%= form.input field.name, label: field.label, as: field.input_type,
+      required: field.required, collection: field.options, value_method: :value, label_method: :label %>
   <% end %>
 
   <%= form.button :submit, "Next Entry", class: 'btn-primary' %>

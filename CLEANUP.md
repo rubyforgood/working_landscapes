@@ -8,3 +8,15 @@
 
 ### UI cleanup
 * Form confirmation button is gone-zo
+
+### Data cleanup
+* Lat/long fixtures have one value, corresponing protocol is made with 2 to be more sane
+* Clean up protocol vs survey_protocol inconsistencies
+
+### Features
+* no way to edit a SurveyProtocol title
+* publish SurveyProtocol (starts in draft); also delete
+
+### Modeling
+* consider generating EntryForm subclass on publish
+* rename SampleForm -> AbstractSampleForm, etc
