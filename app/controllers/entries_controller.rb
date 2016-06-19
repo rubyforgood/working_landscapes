@@ -1,15 +1,16 @@
 class EntriesController < ApplicationController
 
   def new
-    @observation  = Observation.find(params[:observation_id])
+    @sample       = Sample.find(params[:sample_id])
+    @observation  = @sample.observation
     @protocol     = GenerateSurveyProtocolForm.new(@observation.protocol.entry_fields, EntryForm)
-    @sample       = Sample.find(id: params[:sample_id])
     @entry        = @protocol.form_class.new(entry: Entry.new)
   end
 
   def create
-    @protocol     = GenerateSurveyProtocolForm.new(fixture, EntryForm)
-    @sample       = Sample.new(id: params[:sample_id])
+    @sample       = Sample.find(params[:sample_id])
+    @observation  = @sample.observation
+    @protocol     = GenerateSurveyProtocolForm.new(@observation.protocol.entry_fields, EntryForm)
     entry         = Entry.new(sample_id: params[:sample_id])
 
     form = @protocol.form_class.new(entry: entry, data: OpenStruct.new)
