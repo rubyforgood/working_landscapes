@@ -1,13 +1,15 @@
 class EntriesController < ApplicationController
 
   def new
-    @protocol     = GenerateSurveyProtocolForm.new(fixture)
+    survey_protocol = SurveyProtocol.first
+    @protocol     = GenerateSurveyProtocolForm.new(survey_protocol.entry_fields)
     @sample       = Sample.new(id: params[:sample_id])
     @entry        = @protocol.form_class.new(entry: Entry.new)
   end
 
   def create
-    @protocol     = GenerateSurveyProtocolForm.new(fixture)
+    survey_protocol = SurveyProtocol.first
+    @protocol     = GenerateSurveyProtocolForm.new(survey_protocol.entry_fields)
     @sample       = Sample.new(id: params[:sample_id])
     entry         = Entry.new(sample_id: params[:sample_id])
 
@@ -21,19 +23,6 @@ class EntriesController < ApplicationController
   end
 
 private
-
-  def fixture
-    { "fields" => [
-      { "label" => "Flowering","field_type" => "dropdown","required" => true,"field_options" => {},"cid" => "c24"},
-      { "label" => "Grass/Forb/Wood","field_type" => "dropdown","required" => true,
-        "field_options" => {"options" => [
-          {"label" => "Grass","checked" => true},
-          {"label" => "Forb","checked" => false},
-          {"label" => "Wood","checked" => false}
-      ],"include_blank_option" => true},"cid" => "c54"},
-      { "label" => "Notes", "field_type" => "text", "required" => true, "field_options" => {}, "cid" => "c3" }
-    ]}
-  end
 
   def save_form form
     form.save do |hash|

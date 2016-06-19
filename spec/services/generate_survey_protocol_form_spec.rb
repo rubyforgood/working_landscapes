@@ -4,7 +4,7 @@ describe GenerateSurveyProtocolForm do
   subject(:fields) { described_class.new(input) }
 
   let(:input) {
-    { "fields" => [
+    [
       {"label" => "Please enter your clearance number","field_type" => "text","required" => true,"field_options" => {},"cid" => "c6"},
       {"label" => "Please enter your clearance number Copy","field_type" => "text","required" => true,"field_options" => {},"cid" => "c18"},
       {"label" => "Security personnel #82?","field_type" => "radio","required" => true,"field_options" => {"options" => [{"label" => "Yes","checked" => false},{"label" => "No","checked" => false}],"include_other_option" => true},"cid" => "c10"},
@@ -13,7 +13,7 @@ describe GenerateSurveyProtocolForm do
       {"label" => "Untitled","field_type" => "section_break","required" => true,"field_options" => {},"cid" => "c25"},
       {"label" => "Untitled","field_type" => "text","required" => true,"field_options" => {"size" => "small"},"cid" => "c29"},
       {"label" => "Hello","field_type" => "checkboxes","required" => true,"field_options" => {"options" => [{"label" => "A","checked" => true},{"label" => "B","checked" => true}]},"cid" => "c33"}
-    ]}
+    ]
   }
 
   describe "field iteration" do
