@@ -16,7 +16,7 @@ RSpec.describe "submitting an individual entry", type: :feature do
   }
 
   before do
-    protocol_builder = GenerateSurveyProtocolForm.new(protocol_definition)
+    protocol_builder = GenerateSurveyProtocolForm.new(protocol_definition, EntryForm)
     allow(GenerateSurveyProtocolForm).to receive(:new).and_return protocol_builder
   end
 

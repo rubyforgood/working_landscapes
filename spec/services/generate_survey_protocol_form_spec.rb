@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe GenerateSurveyProtocolForm do
-  subject(:fields) { described_class.new(input) }
+  subject(:fields) { described_class.new(input, EntryForm) }
 
   let(:input) {
     { "fields" => [
@@ -20,7 +20,6 @@ describe GenerateSurveyProtocolForm do
     it "provides an enumerator over provided fields" do
       expect(fields.each_field.map{|f| f.label }.to_a[3]).to eq "Medical history"
     end
-
   end
 
   describe "form_class" do

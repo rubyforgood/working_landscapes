@@ -19,4 +19,4 @@
 
 ### Modeling
 * consider generating EntryForm subclass on publish
-* 
+* rename SampleForm -> AbstractSampleForm, etc

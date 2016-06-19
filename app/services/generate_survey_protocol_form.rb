@@ -1,8 +1,9 @@
 class GenerateSurveyProtocolForm
-  attr_reader :fields
+  attr_reader :fields, :form_superclass
 
-  def initialize(format)
-    @fields = format
+  def initialize(fields, form_superclass)
+    @fields = fields
+    @form_superclass = form_superclass
   end
 
   def each_field(&block)
@@ -16,7 +17,7 @@ class GenerateSurveyProtocolForm
 private
 
   def define_form_class
-    Class.new(EntryForm).tap do |klass| 
+    Class.new(form_superclass).tap do |klass| 
       each_field.each do |f|
         klass.send :property, f.name, virtual: true, on: :data
       end
