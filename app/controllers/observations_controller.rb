@@ -7,7 +7,7 @@ class ObservationsController < ApplicationController
   def create
     @observation = Observation.new(strong_params)
     if @observation.save!
-      redirect_to edit_observation_path(@observation)
+      redirect_to new_observation_sample_path(@observation)
     else
       flash[:message] = "Could not save this observation"
       render :new
