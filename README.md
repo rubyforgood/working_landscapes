@@ -16,8 +16,8 @@ I'd like to see VWL after Ruby for Good have an application that can provide the
 
 ## Application Structure
 
-(TBD -- GitHub issues will cover planning for this section)
+See the [GitHub wiki](github.com/rubyforgood/working_landscapes/wiki/) for this project for more information about application structure.
 
 ## Installation and Deployment Notes
 
-None yet
+This is a Ruby on Rails app that uses Postres-specific features such as hstore. Any version of Postgres that supports hstore fields should be sufficient. Ruby and Rails versions are specified in the project's `.ruby-version` and `Gemfile`.
