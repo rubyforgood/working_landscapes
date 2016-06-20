@@ -14,8 +14,7 @@ class UjsController < ApplicationController
 
   private
   def approved_resources
-    #[Site, Subsite, Property, ActiveAdmin::Comment] 
-    ActiveRecord::Base.descendants - [AdminUser] + [Taxon]
+    [Site, Subsite, Property, Taxon]
   end
 
   def filtered_resource
