@@ -8,7 +8,7 @@ ActiveAdmin.register Site do
   end 
 
   filter :name
-  filter :property, collection: Property.pluck(:name, :id)
+  filter :property, collection: ->{Property.pluck(:name, :id)}
 
   form do |f| 
     f.inputs "Site Details" do

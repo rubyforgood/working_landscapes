@@ -10,9 +10,9 @@ ActiveAdmin.register Subsite do
   end 
 
   filter :name
-  filter :site, collection: Site.select(:name,:id,:property_id).map{|s|
+  filter :site, collection: ->{Site.select(:name,:id,:property_id).map{|s|
         ["#{s.property&.name} - #{s.name}",s.id]
-      }
+      }}
 
 
   form do |f| 
