@@ -137,6 +137,10 @@ ActiveAdmin.setup do |config|
   #
   config.batch_actions = true
 
+  config.register_stylesheet 'active_admin/hstore_editor.css'
+
+  config.register_javascript 'active_admin/hstore_editor.js'
+
   # == Controller Filters
   #
   # You can add before, after and around filters to all of your

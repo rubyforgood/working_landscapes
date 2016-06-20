@@ -41,6 +41,8 @@ GEM
       railties
       select2-rails (~> 3.5.9)
       xdan-datetimepicker-rails (~> 2.5.1)
+    activeadmin_hstore_editor (0.0.5)
+      railties (>= 3.0, < 5.0)
     activejob (4.2.6)
       activesupport (= 4.2.6)
       globalid (>= 0.3.0)
@@ -289,6 +291,7 @@ DEPENDENCIES
   activeadmin (~> 1.0.0.pre2)
   activeadmin-reform (~> 0.1.4)
   activeadmin_addons (~> 0.9.2)
+  activeadmin_hstore_editor
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3.6)

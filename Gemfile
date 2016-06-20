@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'activeadmin', '~> 1.0.0.pre2'
 # ActiveAdmin nicities
 gem 'activeadmin_addons', '~> 0.9.2' # 
+gem 'activeadmin_hstore_editor'
 # ActiveAdmin ReForm support
 gem 'activeadmin-reform', '~> 0.1.4' # https://github.com/bolshakov/activeadmin-reform
 #gem "activeadmin_sortable_table" # https://github.com/bolshakov/activeadmin_sortable_table
