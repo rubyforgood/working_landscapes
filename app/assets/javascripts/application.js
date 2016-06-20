@@ -23,3 +23,18 @@
 //= require rivets.min
 //= require formbuilder
 //= require_tree .
+
+// Data Autocomplete
+$(function() {
+  $('[data-autocomplete]').keyup( function() {
+    $this = $(this);
+    $.get($this.data('autocomplete'), {
+      input: $this.val()
+    }).success(function() {
+      $this.removeClass('field_with_errors');
+    }).error(function() {
+      $this.addClass('field_with_errors');
+    }); 
+  }); 
+});
+
