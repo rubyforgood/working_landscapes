@@ -14,7 +14,7 @@ class UjsController < ApplicationController
 
   private
   def approved_resources
-    [Site, Subsite, Property, Taxon]
+    [Sample, SurveyProtocol, Observation, Entry, Site, Subsite, Property, Taxon]
   end
 
   def filtered_resource
