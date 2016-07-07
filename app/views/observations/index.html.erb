@@ -1,0 +1,13 @@
+<h3>Protocol Observations</h3>
+<ul>
+  <% @protocols.each do |protocol| %>
+    <li><%= protocol.title %></li>
+    <ul>
+      <% protocol.observations.each do |observation| %>
+        <li><%= observation.protocol_id %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
+
+<h3>Site Observations</h3>

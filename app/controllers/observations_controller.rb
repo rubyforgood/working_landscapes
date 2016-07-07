@@ -1,4 +1,10 @@
 class ObservationsController < ApplicationController
+
+  def index
+    @protocols = SurveyProtocol.all.includes(:observations)
+    
+  end
+
   def new
     @observation = Observation.new
     create_collections
