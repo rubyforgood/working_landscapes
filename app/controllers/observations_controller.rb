@@ -1,8 +1,12 @@
 class ObservationsController < ApplicationController
 
   def index
-    @protocols = SurveyProtocol.all.includes(:observations)
-    
+    @by_protocol = SurveyProtocol.all.includes(:observations)
+    obs_by_site = Observation.order(:site_id)
+    @by_site = Hash.new { |h, k| h[k] = [] }
+    obs_by_site.each do |observation|
+      @by_site[Site.find(observation.site_id).name] << observation
+    end
   end
 
   def new
