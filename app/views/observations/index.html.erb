@@ -16,9 +16,9 @@
           </h5>
           <table class="table table-striped table-bordered">
             <thead>
-              <% observation.samples.first.response_data.each_with_index do |(k, v), i| %>
+              <% observation.sample_field_names.each_with_index do |name, i| %>
                 <% break if i > 6 %>
-                <th><%= k %></th>
+                <th><%= name %></th>
               <% end %>
               <th>Edit</th>
               <th>Delete</th>

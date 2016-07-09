@@ -24,4 +24,7 @@ class Observation < ActiveRecord::Base
     end
   end
 
+  def sample_field_names
+    protocol.sample_fields.map {|field| field["label"]}
+  end
 end
