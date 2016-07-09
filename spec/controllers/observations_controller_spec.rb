@@ -16,4 +16,9 @@ RSpec.describe ObservationsController, type: :controller do
     observation = Observation.create!(protocol: @protocol, site_id: @site.id)
     get :edit, id: observation.id
   end
+
+  it "can view index" do
+    get :index
+    expect(response).to render_template :index
+  end
 end
