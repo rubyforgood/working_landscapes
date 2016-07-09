@@ -7,6 +7,11 @@ class ObservationsController < ApplicationController
     obs_by_site.each do |observation|
       @by_site[Site.find(observation.site_id).name] << observation
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data Observation.to_csv(@by_site), filename: "all_observations.csv"}
+    end
   end
 
   def new
@@ -39,6 +44,14 @@ class ObservationsController < ApplicationController
       flash[:message] = "Could not update this observation"
       create_collections
       render :edit
+    end
+  end
+
+  # hijacked RESTful show action to export CSV for an observation
+  def show
+    @observation = Observation.find_by_id(params[:id])
+    respond_to do |format|
+      format.csv { send_data Observation.to_csv(@observation), filename: "observation-#{params[:id]}.csv" }
     end
   end
 
