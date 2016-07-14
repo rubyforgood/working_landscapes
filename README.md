@@ -24,4 +24,16 @@ See the [GitHub wiki](github.com/rubyforgood/working_landscapes/wiki/) for this 
 
 ## Installation and Deployment Notes
 
-This is a Ruby on Rails app that uses Postres-specific features such as hstore. Any version of Postgres that supports hstore fields should be sufficient. Ruby and Rails versions are specified in the project's `.ruby-version` and `Gemfile`.
+This is a Ruby on Rails app that uses Postgres-specific features such as hstore. Any version of Postgres that supports hstore fields should be sufficient. Ruby and Rails versions are specified in the project's `.ruby-version` and `Gemfile`.
+
+If you have Ruby and Postgres installed, clone this repository.
+Then run:
+```
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
+
+You may also want to run `bundle exec rake db:seed` to add an initial username and password for Active Admin, or `bundle exec rake db:seed_fixtures` to add some sample data to get you started.
+
+Other notes on how to access and use parts of the application will be added to the GitHub wiki.
