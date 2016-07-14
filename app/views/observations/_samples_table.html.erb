@@ -1,0 +1,24 @@
+<div class="table-responsive panel-data">
+  <% observations.each do |observation| %>
+    <table class="table table-striped table-bordered">
+      <!-- Column Headers -->
+      <thead>
+        <tr>
+          <% observation.samples.first.response_data.each do |k, v| %>
+            <th><%= k %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <!-- Populate Sample Values -->
+      <tbody>
+        <% observation.samples.each do |sample| %>
+          <tr>
+            <% sample.response_data.each do |k, v| %>
+              <td><%= v %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

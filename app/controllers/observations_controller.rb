@@ -1,12 +1,7 @@
 class ObservationsController < ApplicationController
 
   def index
-    # @by_protocol = SurveyProtocol.all.includes(:observations => :samples)
-    obs_by_site = Observation.order(:site_id).includes(:samples)
-    @by_site = Hash.new { |h, k| h[k] = [] }
-    obs_by_site.each do |observation|
-      @by_site[Site.find(observation.site_id).name] << observation
-    end
+    @by_protocol = SurveyProtocol.all.includes(:observations => :samples)
 
     respond_to do |format|
       format.html
@@ -47,11 +42,11 @@ class ObservationsController < ApplicationController
     end
   end
 
-  # hijacked RESTful show action to export CSV for an observation
+  # hijacked RESTful show action to export CSV for a protocol
   def show
-    @observation = Observation.find_by_id(params[:id])
+    protocol = SurveyProtocol.find_by_id(params[:id])
     respond_to do |format|
-      format.csv { send_data Observation.to_csv(@observation), filename: "observation-#{params[:id]}.csv" }
+      format.csv { send_data protocol.samples_to_csv, filename: "#{protocol.title}-#{protocol.id}.csv" }
     end
   end
 
