@@ -1,7 +1,7 @@
 class ObservationsController < ApplicationController
 
   def index
-    @by_protocol = SurveyProtocol.all.includes(:observations => :samples)
+    @protocols = SurveyProtocol.all.includes(:observations => :samples)
 
     respond_to do |format|
       format.html

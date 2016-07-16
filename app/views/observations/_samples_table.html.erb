@@ -4,8 +4,8 @@
       <!-- Column Headers -->
       <thead>
         <tr>
-          <% observation.samples.first.response_data.each do |k, v| %>
-            <th><%= k %></th>
+          <% column_headers.each do |field| %>
+            <th><%= field %></th>
           <% end %>
         </tr>
       </thead>
@@ -13,8 +13,8 @@
       <tbody>
         <% observation.samples.each do |sample| %>
           <tr>
-            <% sample.response_data.each do |k, v| %>
-              <td><%= v %></td>
+            <% column_headers.each do |field| %>
+              <td><%= sample.response_data[field] %></td>
             <% end %>
           </tr>
         <% end %>

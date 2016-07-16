@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <h3>Data by Protocol</h3>
-  <% @by_protocol.each do |protocol| %>
+  <% @protocols.each do |protocol| %>
     <div class="panel panel-default">
       <!-- Protocol Header -->
       <div class="panel-heading">
@@ -11,7 +11,7 @@
       </div>
       <!-- Protocol Contents -->
       <div class="panel-body">
-        <%= render partial: "samples_table", locals: { observations: protocol.observations } %>
+        <%= render partial: "samples_table", locals: { observations: protocol.observations, column_headers: protocol.observations.first.sample_field_names } %>
       </div>
     </div>
   <% end %>

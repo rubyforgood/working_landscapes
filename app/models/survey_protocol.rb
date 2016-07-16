@@ -6,12 +6,17 @@ class SurveyProtocol < ActiveRecord::Base
 
     CSV.generate do |csv|
       # column headers
-      csv << ["site name"] + observations.first.samples.first.response_data.keys
+      sample_headers = observations.first.sample_field_names
+      csv << ["site name"] + sample_headers
       observations = self.observations.includes(:samples)
       # populate sample values
       observations.each do |observation|
         observation.samples.each do |sample|
-          csv << [observation.site.name] + sample.response_data.values
+          binding.pry
+          csv << [observation.site.name] + sample_headers.inject([]) do |m, k|
+            m << sample.response_data[k]
+            m
+          end
         end
       end
     end
