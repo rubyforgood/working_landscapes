@@ -12,7 +12,6 @@ class SurveyProtocol < ActiveRecord::Base
       # populate sample values
       observations.each do |observation|
         observation.samples.each do |sample|
-          binding.pry
           csv << [observation.site.name] + sample_headers.inject([]) do |m, k|
             m << sample.response_data[k]
             m
