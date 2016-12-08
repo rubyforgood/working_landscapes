@@ -4,9 +4,11 @@ RSpec.describe ObservationsController, type: :controller do
   before do
     @property = Property.create(name: "Test Property")
     @site = Site.create(name: "Test Site", property: @property)
-    @protocol = SurveyProtocol.create(title: "Bees!")
+    @protocol = SurveyProtocol.create(title: "Bees!", sample_fields: [{label: "header 1"}, {label: "header 2"}] )
   end
 
+  let(:observation) { Observation.create(protocol: @protocol, site_id: @site.id) }
+  let(:csv_options) { {filename: "#{p}"}}
 
   it "accepts params" do
     post :create, observation: { "property_id" => @property.id, "site_id" => @site.id }
@@ -20,5 +22,13 @@ RSpec.describe ObservationsController, type: :controller do
   it "can view index" do
     get :index
     expect(response).to render_template :index
+  end
+
+  it "GET #show will export to CSV" do
+    expect(@controller).to receive(:send_data) {
+      @controller.render nothing: true
+    }
+    get :show, id: observation.protocol.id, format: :csv
+    expect(response.content_type).to eq "text/csv"
   end
 end

@@ -1,40 +1,17 @@
 <div class="col-md-12">
-  <h3>
-    Observations by Site
-    <%= link_to "Download CSV", observations_path(nil, format: :csv), class: "btn btn-success btn-xs" %>
-  </h3>
-  <% @by_site.each do |site, observations| %>
+  <h3>Data by Protocol</h3>
+  <% @protocols.each do |protocol| %>
     <div class="panel panel-default">
+      <!-- Protocol Header -->
       <div class="panel-heading">
-        <h4><%= site %></h4>
+        <h4>
+          <%= protocol.title %>
+          <%= link_to "Download CSV", observation_path(protocol, format: "csv"), class: "btn btn-success btn-xs" %>
+        </h4>
       </div>
-        <div class="panel-body">
-          <% observations.each do |observation| %>
-          <h5>
-            <%= "Observation [Id: #{observation.id} Date: #{observation.date}]" %>
-            <%= link_to "Edit", edit_observation_path(observation), class: "btn btn-primary btn-xs" %>
-          </h5>
-          <table class="table table-striped table-bordered">
-            <thead>
-              <% observation.sample_field_names.each_with_index do |name, i| %>
-                <% break if i > 6 %>
-                <th><%= name %></th>
-              <% end %>
-              <th>Edit</th>
-              <th>Delete</th>
-            </thead>
-            <tbody>
-              <% observation.samples.each do |sample| %>
-                <tr>
-                  <% sample.response_data.each_with_index do |(k, v), i| %>
-                    <% break if i > 6 %>
-                      <td><%= v %></td>
-                  <% end %>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <% end %>
+      <!-- Protocol Contents -->
+      <div class="panel-body">
+        <%= render partial: "samples_table", locals: { observations: protocol.observations, column_headers: protocol.observations.first.sample_field_names } %>
       </div>
     </div>
   <% end %>
