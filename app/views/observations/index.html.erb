@@ -10,9 +10,11 @@
         </h4>
       </div>
       <!-- Protocol Contents -->
-      <div class="panel-body">
-        <%= render partial: "samples_table", locals: { observations: protocol.observations, column_headers: protocol.observations.first.sample_field_names } %>
-      </div>
+      <% if !protocol.observations.empty? %>
+        <div class="panel-body">
+          <%= render partial: "samples_table", locals: { observations: protocol.observations, column_headers: protocol.observations.first.sample_field_names } %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
