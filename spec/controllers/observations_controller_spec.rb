@@ -24,6 +24,21 @@ RSpec.describe ObservationsController, type: :controller do
     expect(response).to render_template :index
   end
 
+  describe "with render_views" do
+    render_views
+
+    it "will render sample table partial if protocal has observations" do
+      observation
+      get :index
+      expect(response).to render_template(partial: "_samples_table")
+    end
+
+    it "won't render sample_table partial if protocol has no observations" do
+      get :index
+      expect(response).to_not render_template(partial: "_samples_table")
+    end
+  end
+
   it "GET #show will export to CSV" do
     expect(@controller).to receive(:send_data) {
       @controller.render nothing: true
