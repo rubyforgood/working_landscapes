@@ -16,7 +16,7 @@ class ObservationsController < ApplicationController
 
   def create
     @observation = Observation.new(strong_params)
-    if @observation.save!
+    if @observation.save
       redirect_to new_observation_sample_path(@observation)
     else
       flash[:message] = "Could not save this observation"
@@ -33,8 +33,8 @@ class ObservationsController < ApplicationController
 
   def update
     @observation = Observation.find(params[:id])
-    if @observation.update!(strong_params)
-      redirect_to show_observation_path(@observation)
+    if @observation.update(strong_params)
+      redirect_to observations_path
     else
       flash[:message] = "Could not update this observation"
       create_collections
