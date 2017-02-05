@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.3.3' # waiting on https://github.com/rails/rails/issues/25125 to upgrade further
 gem 'rails', '~> 4.2.7'
-gem 'json', '~> 1.8'
 
 #gem "activeadmin_sortable_table" # https://github.com/bolshakov/activeadmin_sortable_table
 gem 'activeadmin', '~> 1.0.0.pre2'
@@ -13,8 +12,11 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~> 3.2' # for activeadmin
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 5.0.5' # later versions break Sprockets import of jquery-ui/datepicker
+gem 'json', '~> 1.8' # 1.8.5+ supports Ruby 2.4
 gem 'pg', '~> 0.15'
 gem 'reform-rails'
+gem 'sass', '3.4' # later versions break on Rails 4.2
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
