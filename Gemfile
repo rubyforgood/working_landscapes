@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
-gem 'rails', '4.2.6'
+ruby '2.3.3'
+gem 'rails', '~> 4.2.7'
+gem 'json', '~> 1.8'
 
 #gem "activeadmin_sortable_table" # https://github.com/bolshakov/activeadmin_sortable_table
 gem 'activeadmin', '~> 1.0.0.pre2'
