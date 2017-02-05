@@ -1,3 +1,7 @@
 <% @survey_protocols.each do |protocol| %>
     <%= link_to protocol.title, [:edit, protocol] %>
+    <br/>
 <% end  %>
+
+<br/>
+<%=link_to("Add Observations",new_observation_path)%>

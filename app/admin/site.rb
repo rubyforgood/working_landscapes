@@ -16,5 +16,9 @@ ActiveAdmin.register Site do
       f.input :property, collection: Property.pluck(:name, :id)
     end 
     f.actions
-  end 
+  end
+
+  action_item :view_protocols do
+    link_to('Manage Protocols',"/survey_protocols")
+  end
 end
