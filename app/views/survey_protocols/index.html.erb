@@ -1,10 +1,10 @@
 <h2>Protocols</h2>
-<% @survey_protocols.each do |protocol| %>
-    <ul><%= link_to protocol.title, [:edit, protocol] %></ul>
-    <br/>
-<% end  %>
+<ul>
+  <% @survey_protocols.each do |protocol| %>
+      <li><%= link_to protocol.title, [:edit, protocol] %></li>
+  <% end  %>
+</ul>
 
-<br/>
 <hr/>
 <p><%=link_to("Add Observations",new_observation_path)%></p>
 <p><%=link_to("Add a New Protocol", new_survey_protocol_path)%></p>
