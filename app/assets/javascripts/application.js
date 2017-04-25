@@ -38,3 +38,12 @@ $(function() {
   }); 
 });
 
+// ActiveAdmin will accidentally load application template on first page load.
+// This function will reload the page and this javascript file will not be available
+// on the second load so the apporpriate styles and sources will be loaded.
+// 
+$(document).on('turbolinks:load', function() {
+  if ( window.location.href.indexOf( "/admin" ) > -1 ) {
+    location.reload()
+  }
+});

@@ -3,7 +3,7 @@ ActiveAdmin.register_page "Dashboard" do
   content title: "Admin Dashboard" do
     div class: "manage_sites_container", id: "dashboard_default_message" do
       span class: "blank_slate" do
-        h1 link_to('Manage Sites',"/admin/sites")
+        h3 link_to('Manage Sites',"/admin/sites")
       end
     end
   end
