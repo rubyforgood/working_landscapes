@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3' # waiting on https://github.com/rails/rails/issues/25125 to upgrade further
-gem 'rails', '~> 4.2.7'
+ruby '2.3.4' # waiting on https://github.com/rails/rails/issues/25125 to upgrade further
+gem 'rails', '~> 4.2.8'
 
 #gem "activeadmin_sortable_table" # https://github.com/bolshakov/activeadmin_sortable_table
-gem 'activeadmin', '~> 1.0.0.pre2'
-gem 'activeadmin-reform', '~> 0.1.4' # https://github.com/bolshakov/activeadmin-reform
-gem 'activeadmin_addons', '~> 0.9.2'
+gem 'activeadmin', '~> 1.0.0'
+gem 'activeadmin-reform', '~> 0.3.0' # https://github.com/bolshakov/activeadmin-reform
+gem 'activeadmin_addons', '~> 0.11.0'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'devise', '~> 3.2' # for activeadmin
-gem 'jbuilder', '~> 2.0'
+gem 'coffee-rails', '~> 4.2.1'
+gem 'devise', '~> 4.2' # for activeadmin
+gem 'jbuilder', '~> 2.6'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0.5' # later versions break Sprockets import of jquery-ui/datepicker
 gem 'json', '~> 1.8' # 1.8.5+ supports Ruby 2.4
@@ -38,6 +38,6 @@ group :development do
 end
 
 group :production do
-  gem 'puma', '~> 3.4'
+  gem 'puma', '~> 3.8'
   gem 'rails_12factor', '~> 0.0.3'
 end
