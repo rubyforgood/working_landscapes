@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "submitting an individual entry", type: :feature do
-
-  let(:site) { Site.create! name: "test site", property_id: 22}
+  let(:property) { Property.create! }
+  let(:site) { Site.create! name: "test site", property_id: property.id}
 
   let(:sample) { observation.samples.create subsite_id: 33 }
   let(:observation ) { Observation.create site_id: site.id, protocol: protocol }
