@@ -3,4 +3,5 @@ class Site < ActiveRecord::Base
   has_many :subsites
 
   validates :name, presence: true
+  validates :property, presence: true
 end
